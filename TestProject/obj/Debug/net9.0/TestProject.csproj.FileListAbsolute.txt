@@ -1,0 +1,14 @@
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/bin/Debug/net9.0/TestProject
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/bin/Debug/net9.0/TestProject.deps.json
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/bin/Debug/net9.0/TestProject.runtimeconfig.json
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/bin/Debug/net9.0/TestProject.dll
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/bin/Debug/net9.0/TestProject.pdb
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/TestProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/TestProject.AssemblyInfoInputs.cache
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/TestProject.AssemblyInfo.cs
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/TestProject.csproj.CoreCompileInputs.cache
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/TestProject.dll
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/refint/TestProject.dll
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/TestProject.pdb
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/TestProject.genruntimeconfig.cache
+/Users/tanakayuuichirou/Documents/CsharpProjects/TestProject/obj/Debug/net9.0/ref/TestProject.dll

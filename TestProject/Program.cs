@@ -1,26 +1,17 @@
-﻿
-/*
-  This code reverses a message, counts the number of times 
-  a particular character appears, then prints the results
-  to the console window.
- */
+﻿int[] numbers = [ 4, 8, 15, 16, 23, 42 ];
 
-string originalMessage = "The quick brown fox jumps over the lazy dog.";
+bool found;
+int total = 0;
 
-char[] message = originalMessage.ToCharArray();
-Array.Reverse(message);
 
-int letterCount = 0;
-
-foreach (char letter in message)
+foreach (int number in numbers)
 {
-  if (letter == 'o')
+  total += number;
+  if (number == 42)
   {
-    letterCount++;
+    found = true;
+    Console.WriteLine("Set contains 42");
   }
 }
 
-string new_message = new String(message);
-
-Console.WriteLine(new_message);
-Console.WriteLine($"'o' appears {letterCount} times.");
+Console.WriteLine($"Total: {total}");

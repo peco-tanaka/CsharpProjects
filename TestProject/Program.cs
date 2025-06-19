@@ -1,21 +1,9 @@
-﻿string[] names = ["Rowena", "Robin", "Bao"];
+﻿string[] orderIds = ["B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179"];
 
-foreach (string name in names)
+foreach (string orderId in orderIds)
 {
-  Console.WriteLine(name);
+  if (orderId.StartsWith("B"))
+  {
+    Console.WriteLine(orderId);
+  }
 }
-
-int[] inventory = [200, 450, 700, 175, 250];
-
-int sum = 0;
-
-int bin = 0;
-
-foreach (int item in inventory)
-{
-  sum += item;
-  bin++;
-  Console.WriteLine($"Bin {bin} = {item} items (Running total: {sum})");
-}
-
-Console.WriteLine($"We have {sum} items in inventory.");

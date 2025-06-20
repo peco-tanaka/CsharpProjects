@@ -1,47 +1,31 @@
-﻿Console.WriteLine("ロール名を入力してください（管理者・マネージャー・ユーザー）：");
+﻿string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+int stringCount = myStrings.Length;
 
-string? input;
-string[] roles = { "管理者", "マネージャー", "ユーザー" };
-bool isValid = false;
-do
+string myString = "";
+
+int periodLocation = 0;
+
+for (int i = 0; i < stringCount; i++)
 {
-    input = Console.ReadLine()?.Trim();
-    if (input != null && Array.Exists(roles, role => role == input))
+    myString = myStrings[i];
+    periodLocation = myString.IndexOf(".");
+
+    string mySentence;
+
+    while (periodLocation != -1)
     {
-        isValid = true;
+        // first sentence is the string value to the left of the period location
+        mySentence = myString.Remove(periodLocation);
+
+        // the remainder of myString is the string value to the right of the location
+        myString = myString.Substring(periodLocation + 1);
+
+        // remove any leading white-space from myString
+        myString = myString.TrimStart();
+
+        // update the comma location and increment the counter
+        periodLocation = myString.IndexOf(".");
+
+        Console.WriteLine(mySentence);
     }
-    else
-    {
-        Console.WriteLine("正しいロール名（管理者・マネージャー・ユーザー）を入力してください。");
-    }
-} while (!isValid);
-
-Console.WriteLine($"入力値『{input}』は受け入れられました。");
-
-/* 模範解答例
-string? readResult;
-string roleName = "";
-bool validEntry = false;
-
-do
-{                
-    Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
-    readResult = Console.ReadLine();
-    if (readResult != null) 
-    {
-        roleName = readResult.Trim();
-    }
-
-    if (roleName.ToLower() == "administrator" || roleName.ToLower() == "manager" || roleName.ToLower() == "user") 
-    {
-        validEntry = true;
-    }
-    else
-    {
-        Console.Write($"The role name that you entered, \"{roleName}\" is not valid. ");
-    }
-
-} while (validEntry == false);
-
-Console.WriteLine($"Your input value ({roleName}) has been accepted.");
-readResult = Console.ReadLine(); */
+}

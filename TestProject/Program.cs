@@ -1,32 +1,19 @@
-﻿Console.WriteLine("5から10までの整数を入力してください。");
+﻿Console.WriteLine("ロール名を入力してください（管理者・マネージャー・ユーザー）：");
 
-int number;
-while (true)
+string? input;
+string[] roles = { "管理者", "マネージャー", "ユーザー" };
+bool isValid = false;
+do
 {
-    // 入力を取得
-    string? input = Console.ReadLine();
-
-    // 入力が整数かどうかを判定
-    if (int.TryParse(input, out number))
+    input = Console.ReadLine()?.Trim();
+    if (input != null && Array.Exists(roles, role => role == input))
     {
-        // 5から10の範囲かどうかを判定
-        if (number >= 5 && number <= 10)
-        {
-            break; // 条件を満たしたらループ終了
-        }
-        else
-        {
-            // 範囲外の場合
-            Console.WriteLine("5から10までの整数を入力してください。");
-        }
+        isValid = true;
     }
     else
     {
-        // 数値以外の入力の場合
-        Console.WriteLine("数値を入力してください。");
+        Console.WriteLine("正しいロール名（管理者・マネージャー・ユーザー）を入力してください。");
     }
-}
+} while (!isValid);
 
-// 入力値が受け入れられたことを通知
-Console.WriteLine($"入力値 {number} は受け入れられました。");
-
+Console.WriteLine($"入力値『{input}』は受け入れられました。");

@@ -1,56 +1,50 @@
-﻿/* Console.WriteLine("Signed integral types:");
+﻿// C# 値型 vs 参照型 学習サンプル
 
-Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue} ");
-Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue} ");
-Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue} ");
-Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue} ");
+// 配列の宣言と初期化例
+int[] data;              // 配列変数の宣言（まだnull）
+data = new int[3];       // メモリ上にint型3要素の配列を作成
 
-Console.WriteLine("");
-Console.WriteLine("Unsigned integral types:");
-
-Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
-Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
-Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
-Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
-
-Console.WriteLine("");
-Console.WriteLine("Floating point types:");
-Console.WriteLine($"float  : {float.MinValue} to {float.MaxValue} (with ~6-9 digits of precision)");
-Console.WriteLine($"double : {double.MinValue} to {double.MaxValue} (with ~15-17 digits of precision)");
-Console.WriteLine($"decimal: {decimal.MinValue} to {decimal.MaxValue} (with 28-29 digits of precision)");
-
- */
-
-int[] data;
-data = new int[3];
-
-
-int[] data2 = new int[3];
+int[] data2 = new int[3]; // 宣言と初期化を同時に
 
 string shortenedString = "Hello World";
 Console.WriteLine(shortenedString);
 
-int val_A = 2;
-int val_B = val_A;
-val_B = 5;
+// ========================================
+// 1. 値型（Value Types）の動作
+// ========================================
+// 値型は値そのものをコピーする
+
+int val_A = 2;           // val_Aに値2を格納
+int val_B = val_A;       // val_Bにval_Aの値（2）をコピー
+val_B = 5;               // val_Bのみを5に変更（val_Aには影響しない）
 
 Console.WriteLine("--Value Types--");
-Console.WriteLine($"val_A: {val_A}");
-Console.WriteLine($"val_B: {val_B}");
+Console.WriteLine($"val_A: {val_A}"); // 結果: 2（変更されない）
+Console.WriteLine($"val_B: {val_B}"); // 結果: 5
 
-string str_A = "2";
-string str_B = str_A;
-str_B = "5";
+// ========================================
+// 2. 参照型（Reference Types）- string型の特殊な動作
+// ========================================
+// stringは参照型だが「イミュータブル（不変）」なので値型のような動作をする
 
-Console.WriteLine("--Reference Types--");
-Console.WriteLine($"str_A: {str_A}");  // Hello
-Console.WriteLine($"str_B: {str_B}");  // World
+string str_A = "2";      // str_Aが"2"を参照
+string str_B = str_A;    // str_Bも同じ"2"を参照
+str_B = "5";             // str_Bは新しい"5"オブジェクトを参照（str_Aは変わらず"2"を参照）
 
-int[] ref_A = new int[1];
-ref_A[0] = 2;
-int[] ref_B = ref_A;
-ref_B[0] = 5;
+Console.WriteLine("--Reference Types (String - Immutable)--");
+Console.WriteLine($"str_A: {str_A}"); // 結果: "2"（変更されない）
+Console.WriteLine($"str_B: {str_B}"); // 結果: "5"
 
-Console.WriteLine("--Reference Types--");
-Console.WriteLine($"ref_A[0]: {ref_A[0]}");
-Console.WriteLine($"ref_B[0]: {ref_B[0]}");
+// ========================================
+// 3. 参照型（Reference Types）- 配列の一般的な動作
+// ========================================
+// 配列は参照型で「ミュータブル（可変）」なので参照を共有する
+
+int[] ref_A = new int[1]; // ref_Aが新しい配列オブジェクトを参照
+ref_A[0] = 2;            // 配列の最初の要素に2を代入
+int[] ref_B = ref_A;     // ref_Bも同じ配列オブジェクトを参照（参照のコピー）
+ref_B[0] = 5;            // 配列の中身を変更（ref_Aからも同じ変更が見える）
+
+Console.WriteLine("--Reference Types (Array - Mutable)--");
+Console.WriteLine($"ref_A[0]: {ref_A[0]}"); // 結果: 5（影響を受ける）
+Console.WriteLine($"ref_B[0]: {ref_B[0]}"); // 結果: 5

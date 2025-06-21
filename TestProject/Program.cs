@@ -1,25 +1,20 @@
-﻿/* // 拡大変換により暗黙的な変換が実行される
-int myInt = 3;
-Console.WriteLine($"int: {myInt}");
+﻿/*
+// ToString()メソッドを使用して数値を文字列に変換
+int first = 5;
+int second = 7;
+string message = first.ToString() + second.ToString();
+Console.WriteLine(message);
+*/
 
-decimal myDecimal = myInt;
-Console.WriteLine($"decimal: {myDecimal}");
-
+/*
+// Parseメソッドを使用して文字列を数値に変換
+string first = "5";
+string second = "7";
+int sum = int.Parse(first) + int.Parse(second);
+Console.WriteLine(sum);
  */
 
-
-/* // キャストを使用して明示的に変換する例
-decimal myDecimal = 3.14m;
-Console.WriteLine($"decimal: {myDecimal}");
-
-int myInt = (int)myDecimal;
-Console.WriteLine($"int: {myInt}");
- */
-
-
-// 明示的なキャストを使用して decimal から float への変換を行う例
-decimal myDecimal = 1.23456789m;
-float myFloat = (float)myDecimal; // 明示的なキャスト
-
-Console.WriteLine($"decimal: {myDecimal}");
-Console.WriteLine($"float: {myFloat}");
+string value1 = "5";
+string value2 = "7";
+int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+Console.WriteLine(result)

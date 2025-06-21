@@ -1,17 +1,7 @@
-﻿// int型は暗黙的変換されない
-int first = 2;
-string second = "4";
-int result = first + second;
-Console.WriteLine(result);
+﻿// 拡大変換により暗黙的な変換が実行される
+int myInt = 3;
+Console.WriteLine($"int: {myInt}");
 
-// string型は暗黙的変換される
-int first = 2;
-string second = "4";
-string result = first + second;
-Console.WriteLine(result);
+decimal myDecimal = myInt;
+Console.WriteLine($"decimal: {myDecimal}");
 
-
-int first = 2;
-string second = "4";
-int result = first + second;
-Console.WriteLine(result);

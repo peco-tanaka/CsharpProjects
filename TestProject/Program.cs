@@ -1,31 +1,56 @@
-﻿string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
-int stringCount = myStrings.Length;
+﻿/* Console.WriteLine("Signed integral types:");
 
-string myString = "";
+Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue} ");
+Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue} ");
+Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue} ");
+Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue} ");
 
-int periodLocation = 0;
+Console.WriteLine("");
+Console.WriteLine("Unsigned integral types:");
 
-for (int i = 0; i < stringCount; i++)
-{
-    myString = myStrings[i];
-    periodLocation = myString.IndexOf(".");
+Console.WriteLine($"byte   : {byte.MinValue} to {byte.MaxValue}");
+Console.WriteLine($"ushort : {ushort.MinValue} to {ushort.MaxValue}");
+Console.WriteLine($"uint   : {uint.MinValue} to {uint.MaxValue}");
+Console.WriteLine($"ulong  : {ulong.MinValue} to {ulong.MaxValue}");
 
-    string mySentence;
+Console.WriteLine("");
+Console.WriteLine("Floating point types:");
+Console.WriteLine($"float  : {float.MinValue} to {float.MaxValue} (with ~6-9 digits of precision)");
+Console.WriteLine($"double : {double.MinValue} to {double.MaxValue} (with ~15-17 digits of precision)");
+Console.WriteLine($"decimal: {decimal.MinValue} to {decimal.MaxValue} (with 28-29 digits of precision)");
 
-    while (periodLocation != -1)
-    {
-        // first sentence is the string value to the left of the period location
-        mySentence = myString.Remove(periodLocation);
+ */
 
-        // the remainder of myString is the string value to the right of the location
-        myString = myString.Substring(periodLocation + 1);
+int[] data;
+data = new int[3];
 
-        // remove any leading white-space from myString
-        myString = myString.TrimStart();
 
-        // update the comma location and increment the counter
-        periodLocation = myString.IndexOf(".");
+int[] data2 = new int[3];
 
-        Console.WriteLine(mySentence);
-    }
-}
+string shortenedString = "Hello World";
+Console.WriteLine(shortenedString);
+
+int val_A = 2;
+int val_B = val_A;
+val_B = 5;
+
+Console.WriteLine("--Value Types--");
+Console.WriteLine($"val_A: {val_A}");
+Console.WriteLine($"val_B: {val_B}");
+
+string str_A = "2";
+string str_B = str_A;
+str_B = "5";
+
+Console.WriteLine("--Reference Types--");
+Console.WriteLine($"str_A: {str_A}");  // Hello
+Console.WriteLine($"str_B: {str_B}");  // World
+
+int[] ref_A = new int[1];
+ref_A[0] = 2;
+int[] ref_B = ref_A;
+ref_B[0] = 5;
+
+Console.WriteLine("--Reference Types--");
+Console.WriteLine($"ref_A[0]: {ref_A[0]}");
+Console.WriteLine($"ref_B[0]: {ref_B[0]}");

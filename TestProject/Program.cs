@@ -1,28 +1,22 @@
-﻿// 文字列の配列を用意。数値として解釈できるものとできないものが混在している
-string[] values = ["12.3", "45", "ABC", "11", "DEF"];
+﻿using System.IO.Pipelines;
+using System.Runtime.Intrinsics.X86;
 
-// 数値に変換できなかった文字列を格納する変数
-string message = "";
-// 数値の合計を格納する変数
-decimal total = 0;
+int value1 = 11;
+decimal value2 = 6.2m;
+float value3 = 4.3f;
 
-// 配列の各要素を順に処理
-foreach (var value in values)
-{
-    decimal number;
-    // 文字列をdecimal型に変換できるか判定
-    if (decimal.TryParse(value, out number))
-    {
-        // 変換できた場合は合計に加算
-        total += number;
-    }
-    else
-    {
-        // 変換できなかった場合はmessageに追加
-        message += value;
-    }
-}
+// Divide value1 by value2
+int result1 = Convert.ToInt32(value1 / value2);
 
-// 数値に変換できなかった文字列と合計値を出力
-Console.WriteLine($"Message: {message}");
-Console.WriteLine($"Total: {total}");
+// Divide value2 by value3
+decimal result2 = value2 / (decimal)value3;
+
+// Divide value3 by value1
+float result3 = value3 / value1;
+
+
+Console.WriteLine($"Divide value1 by value2, display the result as an int: {result1}");
+
+Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
+
+Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");

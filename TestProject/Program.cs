@@ -1,31 +1,19 @@
-﻿// 文字列を逆順に並べ替え、カンマ区切りで表示するサンプルコード
+﻿string pangram = "The quick brown fox jumps over the lazy dog";
 
-// 元の文字列を定義
-string value = "abc123";
+// Step 1
+string[] message = pangram.Split(' ');
 
-// 文字列を1文字ずつの配列に変換
-char[] valueArray = value.ToCharArray();
+//Step 2
+string[] newMessage = new string[message.Length];
 
-// 配列を逆順に並べ替え
-Array.Reverse(valueArray);
-
-/*
-// 逆順にした配列から新しい文字列を作成し、表示
-string result = new string(valueArray);
-Console.WriteLine(result); // 出力例: "321cba"
-*/
-
-// 逆順にした配列をカンマ区切りの文字列に変換
-string result = String.Join(",", valueArray);
-
-// カンマ区切りの文字列を表示
-Console.WriteLine(result); // 出力例: "3,2,1,c,b,a"
-
-// カンマで分割して配列に戻す
-string[] items = result.Split(',');
-
-// 配列の各要素を1行ずつ表示
-foreach (string item in items)
+// Step 3
+for (int i = 0; i < message.Length; i++)
 {
-    Console.WriteLine(item);
+    char[] letters = message[i].ToCharArray();
+    Array.Reverse(letters);
+    newMessage[i] = new string(letters);
 }
+
+//Step 4
+string result = String.Join(" ", newMessage);
+Console.WriteLine(result);

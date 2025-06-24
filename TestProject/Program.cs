@@ -1,22 +1,21 @@
-﻿using System.IO.Pipelines;
-using System.Runtime.Intrinsics.X86;
+﻿// 配列palletsを初期化（パレット名のリスト）
+string[] pallets = ["B14", "A11", "B12", "A13"];
 
-int value1 = 11;
-decimal value2 = 6.2m;
-float value3 = 4.3f;
+// 配列を昇順（アルファベット順）にソート
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
+{
+    // ソート後の各要素を表示
+    Console.WriteLine($"-- {pallet}");
+}
 
-// Divide value1 by value2
-int result1 = Convert.ToInt32(value1 / value2);
-
-// Divide value2 by value3
-decimal result2 = value2 / (decimal)value3;
-
-// Divide value3 by value1
-float result3 = value3 / value1;
-
-
-Console.WriteLine($"Divide value1 by value2, display the result as an int: {result1}");
-
-Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
-
-Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
+Console.WriteLine("");
+// 配列を逆順（降順）に並べ替え
+Console.WriteLine("Reversed...");
+Array.Reverse(pallets);
+foreach (var pallet in pallets)
+{
+    // 逆順にした各要素を表示
+    Console.WriteLine($"-- {pallet}");
+}

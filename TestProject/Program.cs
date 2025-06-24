@@ -1,21 +1,30 @@
-﻿// 配列palletsを初期化（パレット名のリスト）
-string[] pallets = ["B14", "A11", "B12", "A13"];
+﻿string[] pallets = ["B14", "A11", "B12", "A13"];
+Console.WriteLine("");
 
-// 配列を昇順（アルファベット順）にソート
-Console.WriteLine("Sorted...");
-Array.Sort(pallets);
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
 foreach (var pallet in pallets)
 {
-    // ソート後の各要素を表示
     Console.WriteLine($"-- {pallet}");
 }
 
 Console.WriteLine("");
-// 配列を逆順（降順）に並べ替え
-Console.WriteLine("Reversed...");
-Array.Reverse(pallets);
+Array.Resize(ref pallets, 6);
+Console.WriteLine($"Resizing to 6 ... count: {pallets.Length}");
+
+pallets[4] = "C01";
+pallets[5] = "C02";
+
 foreach (var pallet in pallets)
 {
-    // 逆順にした各要素を表示
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Array.Resize(ref pallets, 3);
+Console.WriteLine($"Resizing to 3 ... count: {pallets.Length}");
+
+foreach (var pallet in pallets)
+{
     Console.WriteLine($"-- {pallet}");
 }

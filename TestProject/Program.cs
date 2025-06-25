@@ -1,9 +1,34 @@
-﻿string message = "Hello (find) the {opening symbols}";
-Console.WriteLine($"Searching THIS Message: {message}");
-char[] openSymbols = ['(', '{', '[', '<'];
-int startPosition = 5;
-int openingPosition = message.IndexOfAny(openSymbols);
-Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
+﻿const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
 
-openingPosition = message.IndexOfAny(openSymbols, startPosition);
-Console.WriteLine($"Found WITH using startPosition: {message.Substring(openingPosition)}");
+string quantity = "";
+string output = "";
+
+// ここから実装
+
+// "quantity" を抽出
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
+
+int quantityStart = input.IndexOf(openSpan) + openSpan.Length; // <span>タグの直後のインデックス
+int quantityEnd= input.IndexOf(closeSpan);
+int quantityLength = quantityEnd - quantityStart;
+quantity = input.Substring(quantityStart, quantityLength);
+quantity = $"Quantity: {quantity}";
+
+// 商標記号を登録商標記号に置換して output を設定
+const string tradeSymbol = "&trade;";
+const string regSymbol = "&reg;";
+output = input.Replace(tradeSymbol, regSymbol);
+
+// <div>タグを削除
+const string openDiv = "<div>";
+int divStart = output.IndexOf(openDiv);
+output = output.Remove(divStart, openDiv.Length);
+
+// </div>タグを削除し、先頭に "Output:" を追加
+const string closeDiv = "</div>";
+int divCloseStart = output.IndexOf(closeDiv);
+output = "Output: " + output.Remove(divCloseStart, closeDiv.Length);
+
+Console.WriteLine(quantity);
+Console.WriteLine(output);

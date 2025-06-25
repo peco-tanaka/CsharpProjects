@@ -1,14 +1,9 @@
-﻿string message = "(What if) I am (only interested) in the last (set of parentheses)?";
+﻿string message = "Hello (find) the {opening symbols}";
+Console.WriteLine($"Searching THIS Message: {message}");
+char[] openSymbols = ['(', '{', '[', '<'];
+int startPosition = 5;
+int openingPosition = message.IndexOfAny(openSymbols);
+Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
 
-while (true)
-{
-    int openingPosition = message.IndexOf("(");
-    if (openingPosition == -1) break; // No more opening parentheses found
-
-    openingPosition += 1;
-    int closingPosition = message.IndexOf(")");
-    int length = closingPosition - openingPosition;
-    Console.WriteLine(message.Substring(openingPosition, length));
-
-    message = message.Substring(closingPosition + 1);
-}
+openingPosition = message.IndexOfAny(openSymbols, startPosition);
+Console.WriteLine($"Found WITH using startPosition: {message.Substring(openingPosition)}");

@@ -1,36 +1,17 @@
-﻿/* string first = "Hello";
-string second = "World";
-string result = string.Format("{0} {1}!", first, second);
-Console.WriteLine(result);
- */
+﻿// 請求書番号を整数で定義
+int invoiceNumber = 1201;
+// 商品のシェア数（小数点以下4桁）
+decimal productShares = 25.4568m;
+// 小計（通貨型）
+decimal subtotal = 2750.00m;
+// 税率（小数）
+decimal taxPercentage = .15825m;
+// 合計金額（通貨型）
+decimal total = 3185.19m;
 
-/* string first = "Hello";
-string second = "World";
-Console.WriteLine("{1} {0}!", first, second);
-Console.WriteLine("{0} {0} {0}!", first, second); */
-
-string first = "Hello";
-string second = "World";
-Console.WriteLine($"{first} {second}!");
-Console.WriteLine($"{second} {first}!");
-Console.WriteLine($"{first} {first} {first}!");
-
-decimal price = 123.45m;
-int discount = 50;
-Console.WriteLine($"Price: {price:C} (SAVE {discount:C})");
-
-decimal measurement = 12345.678912m;
-Console.WriteLine($"Measurement: {measurement:N} units");
-Console.WriteLine($"Measurement: {measurement:N4} units");
-
-decimal tax = .36785m;
-Console.WriteLine($"Tax rate: {tax:P2}");
-
-decimal price2 = 67.55m;
-decimal salePrice = 59.99m;
-
-string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price. ", (price2 - salePrice), price2);
-Console.WriteLine(yourDiscount);
-
-yourDiscount += $"A discount of {((price2 - salePrice) / price2):P2}!"; // inserted
-Console.WriteLine(yourDiscount);
+// 複合書式設定を使って各値をフォーマットして出力
+Console.WriteLine($"Invoice Number: {invoiceNumber}"); // 通常の整数表示
+Console.WriteLine($"   Shares: {productShares:N3} Product"); // 小数点以下3桁で3桁区切り
+Console.WriteLine($"     Sub Total: {subtotal:C}"); // 通貨書式
+Console.WriteLine($"           Tax: {taxPercentage:P2}"); // パーセント書式（小数点以下2桁）
+Console.WriteLine($"     Total Billed: {total:C}"); // 通貨書式
